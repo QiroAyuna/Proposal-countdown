@@ -1,0 +1,1790 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        #070507;
+
+    color: #f5edf0;
+
+    font-family: Georgia, serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+::selection {
+    background: #d5a5b5;
+    color: #080608;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+.section {
+    position: relative;
+    min-height: 100vh;
+    padding: 140px 25px;
+}
+
+
+/* =========================
+   GRAIN
+========================= */
+
+.grain {
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    opacity: .045;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding: 60px 25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #2b2027 0%,
+            #120e11 32%,
+            #050505 75%
+        );
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        introReveal 2.2s ease forwards;
+
+}
+
+
+@keyframes introReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.eyebrow,
+.section-label,
+.recipient span,
+.date,
+.time small,
+.scroll,
+#musicButton {
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+.eyebrow {
+
+    font-size: 9px;
+
+    letter-spacing: 7px;
+
+    color: #777;
+
+    margin-bottom: 30px;
+
+}
+
+
+h1 {
+
+    font-size:
+        clamp(48px, 8vw, 100px);
+
+    font-weight: 400;
+
+    letter-spacing: -4px;
+
+    line-height: .95;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 0 45px
+        rgba(255,255,255,.08);
+
+}
+
+
+.recipient {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.recipient span {
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #666;
+
+    margin-bottom: 7px;
+
+}
+
+
+.recipient strong {
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    color: #d8b0bd;
+
+}
+
+
+.diamond {
+
+    color: #e2b8c6;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+
+    animation:
+        diamondGlow
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes diamondGlow {
+
+    0%,
+    100% {
+
+        opacity: .3;
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.4);
+
+        text-shadow:
+            0 0 20px
+            #d5a5b5;
+
+    }
+
+}
+
+
+.date {
+
+    font-size: 11px;
+
+    letter-spacing: 10px;
+
+    color: #888;
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: clamp(12px, 4vw, 50px);
+
+    margin-top: 70px;
+
+}
+
+
+.time {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.time span {
+
+    font-family: Arial, sans-serif;
+
+    font-size:
+        clamp(35px, 7vw, 75px);
+
+    font-weight: 200;
+
+    min-width: 90px;
+
+    text-shadow:
+        0 0 30px
+        rgba(255,255,255,.12);
+
+}
+
+
+.time small {
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #666;
+
+}
+
+
+.countdown-line {
+
+    width: 1px;
+
+    height: 35px;
+
+    background:
+        rgba(213,165,181,.25);
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    margin-top: 55px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    font-style: italic;
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+#musicButton {
+
+    margin-top: 35px;
+
+    padding: 13px 25px;
+
+    background:
+        rgba(255,255,255,.02);
+
+    border:
+        1px solid
+        rgba(213,165,181,.35);
+
+    border-radius: 50px;
+
+    color: #d5a5b5;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition:
+        .4s ease;
+
+}
+
+
+#musicButton:hover {
+
+    background:
+        rgba(213,165,181,.08);
+
+    border-color:
+        #d5a5b5;
+
+    box-shadow:
+        0 0 30px
+        rgba(213,165,181,.15);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.7)
+            1px,
+            transparent 1px
+        );
+
+    background-size:
+        120px 120px;
+
+    opacity: .11;
+
+    animation:
+        moveStars
+        28s
+        linear
+        infinite;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+@keyframes moveStars {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(120px);
+    }
+
+}
+
+
+/* =========================
+   GLOW
+========================= */
+
+.glow {
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    opacity: .09;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+.glow-1 {
+
+    background: #c77d9b;
+
+    top: -250px;
+    left: -200px;
+
+    animation:
+        floatOne
+        16s
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+.glow-2 {
+
+    background: #7164bd;
+
+    bottom: -250px;
+    right: -200px;
+
+    animation:
+        floatTwo
+        18s
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+@keyframes floatOne {
+
+    to {
+        transform:
+            translate(180px,120px);
+    }
+
+}
+
+
+@keyframes floatTwo {
+
+    to {
+        transform:
+            translate(-180px,-120px);
+    }
+
+}
+
+
+/* =========================
+   SCROLL
+========================= */
+
+.scroll {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #555;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    z-index: 3;
+
+}
+
+
+.arrow {
+
+    font-size: 18px;
+
+    animation:
+        arrowMove
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes arrowMove {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+
+}
+
+
+/* =========================
+   SECTION INTRO
+========================= */
+
+.section-intro,
+.memory-heading,
+.future-inner,
+.letter-container {
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+.section-number {
+
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #b98799;
+
+    margin-bottom: 20px;
+
+}
+
+
+.section-label {
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+
+    color: #777;
+
+    margin-bottom: 25px;
+
+}
+
+
+.section h2 {
+
+    font-size:
+        clamp(40px, 6vw, 75px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+
+}
+
+
+.section-description {
+
+    max-width: 570px;
+
+    margin-top: 35px;
+
+    color: #777;
+
+    line-height: 2;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+
+    background:
+        linear-gradient(
+            to bottom,
+            #070507,
+            #0c080b
+        );
+
+}
+
+
+.timeline {
+
+    max-width: 850px;
+
+    margin: 120px auto 0;
+
+}
+
+
+.story-card {
+
+    display: grid;
+
+    grid-template-columns: 80px 1fr;
+
+    gap: 40px;
+
+    padding:
+        55px 0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+
+}
+
+
+.story-marker {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #b98799;
+
+}
+
+
+.story-card-content span {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #555;
+
+}
+
+
+.story-card h3 {
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    margin:
+        15px 0 20px;
+
+}
+
+
+.story-card p {
+
+    color: #777;
+
+    max-width: 560px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================
+   MEMORY
+========================= */
+
+.memory {
+
+    background:
+        #0b080a;
+
+}
+
+
+.memory-heading {
+
+    margin-bottom: 80px;
+
+}
+
+
+.memory-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
+    grid-template-rows:
+        300px 300px;
+
+    gap: 18px;
+
+}
+
+
+.memory-photo {
+
+    overflow: hidden;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21171d,
+            #0b080a
+        );
+
+}
+/* =========================
+   DIRECT MEMORY IMAGE
+   (untuk <img> langsung di dalam .memory-photo)
+========================= */
+
+.memory-photo > img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    background: #0a080a;
+
+}
+
+
+.memory-photo > img + .image-caption {
+
+    z-index: 3;
+
+}
+
+
+/* =========================
+   MEMORY IMAGE
+========================= */
+
+.memory-image-frame {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        #0a080a;
+
+}
+
+
+.memory-image-frame img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition:
+        transform 1s ease,
+        filter 1s ease;
+
+}
+
+
+/* Dark cinematic layer */
+
+.image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(5,3,5,.8),
+            transparent 45%,
+            rgba(5,3,5,.12)
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* Caption */
+
+.image-caption {
+
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 22px;
+
+    z-index: 2;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    color: rgba(255,255,255,.7);
+
+}
+
+
+/* Subtle zoom */
+
+.memory-photo:hover
+.memory-image-frame img {
+
+    transform: scale(1.025);
+
+    filter:
+        brightness(.9);
+
+}
+
+
+.photo-one {
+    grid-row: span 2;
+}
+
+
+.photo-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: rgba(255,255,255,.25);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(213,165,181,.12),
+            transparent 60%
+        );
+
+    transition:
+        transform .8s ease;
+
+}
+
+
+.memory-photo:hover
+.photo-placeholder {
+
+    transform: scale(1.05);
+
+}
+
+
+.memory-caption {
+
+    max-width: 500px;
+
+    margin:
+        70px auto 0;
+
+    text-align: center;
+
+    color: #777;
+
+    line-height: 1.9;
+
+    font-style: italic;
+
+}
+
+
+/* =========================
+   REALIZATION
+========================= */
+
+.realization {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #21161d,
+            #080608 65%
+        );
+
+}
+
+
+.realization-inner {
+
+    max-width: 750px;
+
+}
+
+
+.huge-quote {
+
+    font-size: 90px;
+
+    line-height: .5;
+
+    color: #b98799;
+
+    opacity: .5;
+
+    margin:
+        40px 0;
+
+}
+
+
+.realization h2 {
+
+    font-size:
+        clamp(42px, 7vw, 85px);
+
+}
+
+
+.realization h2 span {
+
+    color: #d5a5b5;
+
+    font-style: italic;
+
+}
+
+
+.realization .line {
+
+    width: 60px;
+
+    height: 1px;
+
+    background: #b98799;
+
+    margin:
+        45px auto;
+
+}
+
+
+.realization p:last-child {
+
+    max-width: 520px;
+
+    margin: auto;
+
+    color: #888;
+
+    line-height: 2;
+
+}
+
+
+/* =========================
+   FUTURE
+========================= */
+
+.future {
+
+    display: flex;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: #080608;
+
+}
+
+
+.future-inner {
+
+    width: 100%;
+
+}
+
+
+.future h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.future-subtitle {
+
+    color: #666;
+
+}
+
+
+.second-countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: clamp(20px, 7vw, 90px);
+
+    margin-top: 90px;
+
+}
+
+
+.second-countdown div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.second-countdown strong {
+
+    font-family: Arial, sans-serif;
+
+    font-size:
+        clamp(35px, 6vw, 70px);
+
+    font-weight: 200;
+
+}
+
+
+.second-countdown span {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #555;
+
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-section {
+
+    background:
+        linear-gradient(
+            to bottom,
+            #080608,
+            #0f090d
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.letter-container {
+
+    width: 100%;
+
+}
+
+
+.letter-lock {
+
+    max-width: 600px;
+
+    margin:
+        70px auto 0;
+
+    padding:
+        80px 30px;
+
+    border:
+        1px solid
+        rgba(213,165,181,.12);
+
+    background:
+        rgba(255,255,255,.015);
+
+}
+
+
+.lock-icon {
+
+    font-size: 35px;
+
+    color: #b98799;
+
+    margin-bottom: 30px;
+
+}
+
+
+.letter-lock h2 {
+
+    font-size: 38px;
+
+}
+
+
+.letter-lock p {
+
+    margin-top: 15px;
+
+    color: #666;
+
+}
+
+
+.lock-line {
+
+    width: 45px;
+
+    height: 1px;
+
+    background: #b98799;
+
+    margin:
+        35px auto;
+
+}
+
+
+.letter-lock small {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+    color: #555;
+
+}
+
+
+/* LETTER CONTENT */
+
+.letter-content {
+
+    display: none;
+
+    max-width: 620px;
+
+    margin:
+        70px auto 0;
+
+    text-align: left;
+
+    padding: 55px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(213,165,181,.18);
+
+}
+
+
+.letter-content p {
+
+    color: #aaa;
+
+    line-height: 2;
+
+    margin-bottom: 25px;
+
+}
+
+
+.letter-highlight {
+
+    text-align: center;
+
+    color: #d5a5b5 !important;
+
+    font-size: 38px;
+
+    font-style: italic;
+
+    margin:
+        45px 0 !important;
+
+}
+
+
+.signature {
+
+    text-align: right;
+
+    color: #d5a5b5 !important;
+
+    font-style: italic;
+
+}
+
+
+/* =========================
+   PROPOSAL
+========================= */
+
+.proposal {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3a202b 0%,
+            #140b10 35%,
+            #050505 75%
+        );
+
+}
+
+
+.proposal-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+
+.proposal-symbol {
+
+    font-size: 18px;
+
+    color: #d5a5b5;
+
+    margin:
+        35px 0;
+
+}
+
+
+.proposal h2 {
+
+    font-size:
+        clamp(55px, 9vw, 110px);
+
+    line-height: .9;
+
+    font-weight: 400;
+
+    letter-spacing: -5px;
+
+}
+
+
+.proposal p {
+
+    margin-top: 40px;
+
+    color: #888;
+
+}
+
+
+.proposal-button {
+
+    margin-top: 45px;
+
+    padding:
+        16px 32px;
+
+    border:
+        1px solid
+        rgba(213,165,181,.5);
+
+    background:
+        transparent;
+
+    color: #d5a5b5;
+
+    border-radius: 50px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    cursor: pointer;
+
+    transition: .5s ease;
+
+}
+
+
+.proposal-button:hover {
+
+    background: #d5a5b5;
+
+    color: #090609;
+
+    box-shadow:
+        0 0 50px
+        rgba(213,165,181,.2);
+
+}
+
+
+/* FINAL QUESTION */
+
+.question {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3b1d2a,
+            #090609 70%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(1.04);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease,
+        visibility 1.5s;
+
+}
+
+
+.question.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
+}
+
+
+.question span {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 6px;
+
+    color: #777;
+
+}
+
+
+.question h3 {
+
+    font-size:
+        clamp(55px, 10vw, 120px);
+
+    font-weight: 400;
+
+    font-style: italic;
+
+    margin-top: 30px;
+
+}
+
+
+.question-heart {
+
+    margin-top: 40px;
+
+    font-size: 35px;
+
+    color: #d5a5b5;
+
+    animation:
+        heartBeat
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+
+        padding:
+            45px 18px;
+
+    }
+
+
+    h1 {
+
+        font-size: 48px;
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .recipient strong {
+
+        font-size: 16px;
+
+    }
+
+
+    .date {
+
+        letter-spacing: 6px;
+
+    }
+
+
+    .countdown {
+
+        gap: 7px;
+
+        margin-top: 55px;
+
+    }
+
+
+    .time span {
+
+        min-width: 62px;
+
+        font-size: 30px;
+
+    }
+
+
+    .time small {
+
+        font-size: 6px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .countdown-line {
+
+        height: 25px;
+
+    }
+
+
+    .section {
+
+        padding:
+            100px 20px;
+
+    }
+
+
+    .section h2 {
+
+        font-size: 42px;
+
+    }
+
+
+    .story-card {
+
+        grid-template-columns: 35px 1fr;
+
+        gap: 15px;
+
+    }
+
+
+    .story-card h3 {
+
+        font-size: 28px;
+
+    }
+
+
+    .memory-grid {
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+            280px
+            220px
+            220px;
+
+    }
+
+
+    .photo-one {
+
+        grid-row: auto;
+
+    }
+
+
+    .second-countdown {
+
+        gap: 12px;
+
+        margin-top: 60px;
+
+    }
+
+
+    .second-countdown strong {
+
+        font-size: 30px;
+
+    }
+
+
+    .second-countdown span {
+
+        font-size: 6px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .letter-content {
+
+        padding: 30px 22px;
+
+    }
+
+
+    .letter-highlight {
+
+        font-size: 30px;
+
+    }
+
+
+    .proposal h2 {
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .question h3 {
+
+        font-size: 55px;
+
+    }
+
+}
