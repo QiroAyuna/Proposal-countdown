@@ -19,10 +19,31 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- EARLY THEME INIT: prevents flash; main controls are handled by script.js -->
+    <script>
+        try {
+            if (localStorage.getItem("siteTheme") === "light") document.documentElement.classList.add("prefers-light");
+        } catch (e) {}
+    </script>
+
 </head>
 
 
 <body>
+    <div class="topbar">
+        <div class="brand-mark">✦</div>
+        <div class="topbar-actions">
+            <div class="language-switch" aria-label="Language">
+                <button type="button" class="lang-btn active" data-lang="id">ID</button>
+                <span>/</span>
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☾</button>
+        </div>
+    </div>
+
+    <div class="reading-progress" id="readingProgress"></div>
+
 
     <!-- =========================
          AMBIENT BACKGROUND
@@ -127,12 +148,14 @@
             </button>
 
 
-           <audio id="ourSong" loop>
-    <source
-        src="Janji-Suci.mp3"
-        type="audio/mpeg"
-    >
-</audio>
+            <audio id="ourSong" loop>
+
+                <source
+                    src="music/janji-suci.mp3"
+                    type="audio/mpeg"
+                >
+
+            </audio>
 
         </div>
 
@@ -320,10 +343,13 @@
 
     <div class="memory-image-frame">
 
-       <img
-    src="first-chat.jpeg"
-    alt="Our First Chat"
->
+        <img
+            src="images/first-chat.jpeg"
+            alt="Our first conversation"
+            onclick="window.openMemoryPhoto && window.openMemoryPhoto(this)"
+            role="button"
+            tabindex="0"
+        >
 
         <div class="image-overlay"></div>
 
@@ -338,9 +364,12 @@
             <div class="memory-photo photo-two reveal">
 
     <img
-    src="prewed.jpeg"
-    alt="Prewed Ala Ala"
->
+        src="images/prewed.jpeg"
+        alt="Prewed ala ala"
+        onclick="window.openMemoryPhoto && window.openMemoryPhoto(this)"
+        role="button"
+        tabindex="0"
+    >
 
     <div class="image-caption">
         PREWED ALA ALA
@@ -571,68 +600,14 @@
     </section>
 
 
-    <!-- =========================
-         FINAL PROPOSAL
-    ========================== -->
+    <!-- PHOTO LIGHTBOX -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+        <img id="lightboxImage" src="" alt="">
+        <p id="lightboxCaption"></p>
+    </div>
 
-    <section
-        class="proposal"
-        id="proposal"
-    >
-
-        <div class="proposal-content">
-
-            <p class="section-label">
-                03 · 02 · 2030
-            </p>
-
-            <div class="proposal-symbol">
-                ✦
-            </div>
-
-            <h2>
-                The day<br>
-                has finally come.
-            </h2>
-
-            <p>
-                And there's only one question
-                I've been waiting to ask.
-            </p>
-
-            <button
-                class="proposal-button"
-                id="proposalButton"
-            >
-                OPEN MY HEART
-            </button>
-
-        </div>
-
-
-        <!-- FINAL QUESTION -->
-
-        <div
-            class="question"
-            id="question"
-        >
-
-            <span>
-                FOR THE REST OF MY LIFE
-            </span>
-
-            <h3>
-                Will you marry me?
-            </h3>
-
-            <div class="question-heart">
-                ♡
-            </div>
-
-        </div>
-
-    </section>
-
+    <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 
     <!-- =========================
          SCRIPT
